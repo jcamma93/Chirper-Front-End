@@ -6,16 +6,16 @@ const App = () => {
   const [chirp, setChirp] = useState("");
 
   const [chirpCollection, setChirpCollection] = useState([
-    {
+    { id: 1,
       username: '@Jules_Winnfield',
       message: "Hamburgers! 🍔 The cornerstone of any nutritious breakfast. 😋 ",
 
     },
-    {
+    { id: 2, 
       username: '@Vincent_Vega',
       message: "I gotta know what a five dollar milkshake tastes like. 💰🥤",
     },
-    {
+    { id: 3,
       username: '@Butch_Coolidge',
       message: "🏍️ Zed's dead, baby.  Zed's dead. 🏍️"
     },
@@ -24,7 +24,7 @@ const App = () => {
 
 
   let newchirps = () => {
-    setChirpCollection([...chirpCollection, { username: username, message: chirp }]);
+    setChirpCollection([{ username: username, message: chirp }, ...chirpCollection]);
   };
 
   return (
@@ -45,7 +45,7 @@ const App = () => {
       <ul className="list-group">
         {chirpCollection.map((val) => {
           return (
-            <li className="list-group-item" key={chirp.id}>
+            <li className="list-group-item" key={`${chirp.id}`}>
               <ChirpCard username={val.username} message={val.message} />
             </li>
           );
